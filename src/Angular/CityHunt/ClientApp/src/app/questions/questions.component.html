@@ -1,0 +1,153 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<form name="form" (ngSubmit)="submit()">
+
+  <h1>Q and A</h1>
+  <p>Please fill in the Q and A.</p>
+  <p >The first answer is always the right answer( we will shuffle the questions).</p>
+
+  <!--Q and A 1-->
+  <div style="padding-top: 20px;" class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">
+        <i class="material-icons prefix">help</i>
+      </span>
+    </div>
+    <input type="text"
+           name="Q1"
+           [(ngModel)]="Q"
+           class="form-control"
+           placeholder="Question"
+           required>
+
+
+    <div style="padding-top: 20px; padding-left: 50px;" class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <i class="material-icons prefix">looks_one</i>
+        </span>
+      </div>
+      <input type="text"
+             name="A1"
+             [(ngModel)]="A1"
+             class="form-control"
+             placeholder="Right"
+             required>
+
+      <span class="input-group-text">
+        <i class="material-icons prefix">looks_two</i>
+      </span>
+      <input type="text"
+             name="A2"
+             [(ngModel)]="A2"
+             class="form-control"
+             placeholder="Wrong1"
+             required>
+
+      <span class="input-group-text">
+        <i class="material-icons prefix">looks_3</i>
+      </span>
+      <input type="text"
+             name="A3"
+             [(ngModel)]="A3"
+             class="form-control"
+             placeholder="Wrong2"
+             required>
+
+      <span class="input-group-text">
+        <i class="material-icons prefix">looks_4</i>
+      </span>
+      <input type="text"
+             name="A4"
+             [(ngModel)]="A4"
+             class="form-control"
+             placeholder="Wrong3"
+             required>
+
+    </div>
+  </div>
+  <!--Google MAP-->
+  <div>
+
+    <p>Click on the map below to add the coordinates where the question should be placed.</p>
+    <div style="float: left;">
+      <agm-map [latitude]="lat"
+               [longitude]="lng"
+               [zoom]="15"
+               (mapClick)="addMarker($event)">
+        <agm-marker [latitude]="chosenLat"
+                    [longitude]="chosenLng">
+        </agm-marker>
+      </agm-map>
+    </div>
+    <div style="width: 610px; float:left; padding-left: 30px;">
+      <div class="input-group mb-3">
+        <span class="input-group-text">
+          <i class="material-icons prefix">room</i>
+        </span>
+        <input type="text"
+               name="latitude"
+               [(ngModel)]="latitude"
+               class="form-control"
+               placeholder="Latitude"
+               value="{{chosenLat}}"
+               required>
+      </div>
+      <div style="padding-top: 10px;" class="input-group mb-3">
+        <span class="input-group-text">
+          <i class="material-icons prefix">room</i>
+        </span>
+        <input type="text"
+               name="longitude"
+               [(ngModel)]="longitude"
+               class="form-control"
+               placeholder="Longitude"
+               value="{{chosenLng}}"
+               required>
+      </div>
+    </div>
+    <div>
+      <div style="width: 610px; float:left; padding-left: 30px;">
+        <p>Add a hint here below.</p>
+        <div class="input-group mb-3">
+          <span class="input-group-text">
+            <i class="material-icons prefix">emoji_objects</i>
+          </span>
+          <input type="text"
+                 name="hint"
+                 [(ngModel)]="hint"
+                 class="form-control"
+                 placeholder="Hint"
+                 required>
+        </div>
+        <p>
+          How many points is this question worth? Add it below.
+        </p>
+        <div class="input-group mb-3">
+          <span class="input-group-text">
+            <i class="material-icons prefix">score</i>
+          </span>
+          <input type="text"
+                 name="points"
+                 [(ngModel)]="points"
+                 class="form-control"
+                 placeholder="Points"
+                 required>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="clearfix" style="float: left; padding-left: 30px; padding-bottom: 50px">
+    <p>
+      Press submit to submit the question!
+    </p>
+    <button type="button" class="btn btn-danger px-5 mr-2" [routerLink]="['/home']">Cancel</button>
+    <button type="submit" class="btn btn-warning px-5 mr-2">Submit</button>
+    
+  </div>
+
+
+</form>

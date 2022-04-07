@@ -1,0 +1,77 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<form name="form" (ngSubmit)="submit()">
+
+  <h1>Ability</h1>
+  <p>Please fill this form to add abilities on the map.</p>
+  <br />
+  <p>Please select your ability:</p>
+  <label class="container">
+    Bom
+    <input type="radio" checked="checked" name="Bom" [(ngModel)]="radiobutton" value="Bom">
+    <span class="checkmark"></span>
+  </label>
+  <label class="container">
+    Skip
+    <input type="radio" name="Skip" [(ngModel)]="radiobutton" value="Skip">
+    <span class="checkmark"></span>
+    
+  </label>
+
+  
+
+  <!--Google MAP-->
+  <div>
+
+    <p>Click on the map below to add the coordinates where the question should be placed.</p>
+    <div style="float: left;">
+      <agm-map [latitude]="lat"
+               [longitude]="lng"
+               [zoom]="15"
+               (mapClick)="addMarker($event)">
+        <agm-marker [latitude]="chosenLat"
+                    [longitude]="chosenLng">
+        </agm-marker>
+      </agm-map>
+    </div>
+    <div style="width: 610px; float:left; padding-left: 30px;">
+      <div class="input-group mb-3">
+        <span class="input-group-text">
+          <i class="material-icons prefix">room</i>
+        </span>
+        <input type="text"
+               name="latitude"
+               [(ngModel)]="latitude"
+               class="form-control"
+               placeholder="Latitude"
+               value="{{chosenLat}}"
+               required>
+      </div>
+      <div style="padding-top: 10px;" class="input-group mb-3">
+        <span class="input-group-text">
+          <i class="material-icons prefix">room</i>
+        </span>
+        <input type="text"
+               name="longitude"
+               [(ngModel)]="longitude"
+               class="form-control"
+               placeholder="Longitude"
+               value="{{chosenLng}}"
+               required>
+      </div>
+    </div>
+
+
+
+
+    <div class="clearfix" style="float: left; padding-left: 30px; padding-bottom: 50px">
+      <p>
+        Press submit to submit the question!
+      </p>
+      <button type="button" class="btn btn-danger px-5 mr-2" [routerLink]="['/home']">Cancel</button>
+      <button type="submit" class="btn btn-warning px-5 mr-2">Submit</button>
+      
+    </div>
+  </div>
+
+</form>

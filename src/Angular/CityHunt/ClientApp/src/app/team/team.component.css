@@ -1,0 +1,13 @@
+.container {
+  margin-top: 2%;
+  float: left;
+  width: 44%;
+  padding: 10px;
+}
+.container2 {
+  margin-top: 4%;
+  margin-left: 1%;
+  float: left;
+  width: 55%;
+  padding: 10px;
+}

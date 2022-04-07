@@ -1,0 +1,156 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 1048576 bytes for AllocateHeap
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (memory/allocation.inline.hpp:61), pid=52768, tid=0x0000000000012880
+#
+# JRE version:  (8.0) (build )
+# Java VM: OpenJDK 64-Bit Server VM (25.71-b00 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000000026ae800):  JavaThread "Unknown thread" [_thread_in_vm, id=75904, stack(0x00000000026b0000,0x00000000027b0000)]
+
+Stack: [0x00000000026b0000,0x00000000027b0000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x00000000026ae800 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=75904, stack(0x00000000026b0000,0x00000000027b0000)]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 76288K, used 1310K [0x000000076b500000, 0x0000000770a00000, 0x00000007c0000000)
+  eden space 65536K, 2% used [0x000000076b500000,0x000000076b647af0,0x000000076f500000)
+  from space 10752K, 0% used [0x000000076ff80000,0x000000076ff80000,0x0000000770a00000)
+  to   space 10752K, 0% used [0x000000076f500000,0x000000076f500000,0x000000076ff80000)
+ ParOldGen       total 175104K, used 0K [0x00000006c1e00000, 0x00000006cc900000, 0x000000076b500000)
+  object space 175104K, 0% used [0x00000006c1e00000,0x00000006c1e00000,0x00000006cc900000)
+ Metaspace       used 777K, capacity 4480K, committed 4480K, reserved 1056768K
+  class space    used 74K, capacity 384K, committed 384K, reserved 1048576K
+
+Card table byte_map: [0x0000000011c70000,0x0000000012470000] byte_map_base: 0x000000000e661000
+
+Marking Bits: (ParMarkBitMap*) 0x0000000069ebbe50
+ Begin Bits: [0x00000000131c0000, 0x0000000017148000)
+ End Bits:   [0x0000000017148000, 0x000000001b0d0000)
+
+Polling page: 0x00000000005f0000
+
+CodeCache: size=245760Kb used=328Kb max_used=328Kb free=245431Kb
+ bounds [0x00000000028b0000, 0x0000000002b20000, 0x00000000118b0000]
+ total_blobs=57 nmethods=0 adapters=38
+ compilation: enabled
+
+Compilation events (0 events):
+No events
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (10 events):
+Event: 0.121 loading class java/lang/Short
+Event: 0.121 loading class java/lang/Short done
+Event: 0.121 loading class java/lang/Integer
+Event: 0.121 loading class java/lang/Integer done
+Event: 0.121 loading class java/lang/Long
+Event: 0.121 loading class java/lang/Long done
+Event: 0.122 loading class java/lang/NullPointerException
+Event: 0.122 loading class java/lang/NullPointerException done
+Event: 0.122 loading class java/lang/ArithmeticException
+Event: 0.122 loading class java/lang/ArithmeticException done
+
+
+Dynamic libraries:
+0x00007ff6654c0000 - 0x00007ff6654f5000 	D:\3EA1\3DGame\2020.1.9f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\bin\java.exe
+0x00007ffc9b0e0000 - 0x00007ffc9b2d0000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffc99240000 - 0x00007ffc992f2000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffc98320000 - 0x00007ffc985c5000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffc9acd0000 - 0x00007ffc9ad73000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffc9a010000 - 0x00007ffc9a0ae000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffc99f70000 - 0x00007ffc9a007000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffc9ae50000 - 0x00007ffc9af70000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffc993b0000 - 0x00007ffc99544000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffc982f0000 - 0x00007ffc98311000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffc99300000 - 0x00007ffc99326000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffc98eb0000 - 0x00007ffc99046000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffc985d0000 - 0x00007ffc9866e000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffc98050000 - 0x00007ffc9814a000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffc8df10000 - 0x00007ffc8e194000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.18362.1256_none_9e7e379be45e40e2\COMCTL32.dll
+0x00007ffc9a420000 - 0x00007ffc9a756000 	C:\WINDOWS\System32\combase.dll
+0x00007ffc99050000 - 0x00007ffc990d1000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffc9a0b0000 - 0x00007ffc9a0de000 	C:\WINDOWS\System32\IMM32.DLL
+0x0000000069f40000 - 0x000000006a012000 	D:\3EA1\3DGame\2020.1.9f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\jre\bin\msvcr100.dll
+0x00000000696f0000 - 0x0000000069f39000 	D:\3EA1\3DGame\2020.1.9f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\jre\bin\server\jvm.dll
+0x00007ffc99330000 - 0x00007ffc99338000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffc96a50000 - 0x00007ffc96a59000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffc91080000 - 0x00007ffc9108a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffc9a210000 - 0x00007ffc9a27f000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffc8ef50000 - 0x00007ffc8ef74000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffc8ed10000 - 0x00007ffc8ed3d000 	C:\WINDOWS\SYSTEM32\winmmbase.dll
+0x00007ffc98e00000 - 0x00007ffc98e4a000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x00007ffc896b0000 - 0x00007ffc896bf000 	D:\3EA1\3DGame\2020.1.9f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\jre\bin\verify.dll
+0x00007ffc44a40000 - 0x00007ffc44a69000 	D:\3EA1\3DGame\2020.1.9f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\jre\bin\java.dll
+0x00007ffc44a20000 - 0x00007ffc44a36000 	D:\3EA1\3DGame\2020.1.9f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK\jre\bin\zip.dll
+
+VM Arguments:
+java_command: <unknown>
+java_class_path (initial): .
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=D:\3EA1\3DGame\2020.1.9f1\Editor\Data\PlaybackEngines\AndroidPlayer\OpenJDK
+PATH=C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files\dotnet\;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;D:\Microsoft VS Code\bin;D:\Nodes\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;D:\Git\cmd;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Android;C:\Users\kruys\AppData\Local\Microsoft\WindowsApps;D:\Microsoft VS Code\bin;C:\Users\kruys\AppData\Local\GitHubDesktop\bin;C:\Users\kruys\.dotnet\tools;C:\Users\kruys\AppData\Roaming\npm;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;
+USERNAME=kruys
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 94 Stepping 3, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 18362 (10.0.18362.1110)
+
+CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 94 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, rtm, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+Memory: 4k page, physical 16647108k(3668156k free), swap 20759864k(6200k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.71-b00) for windows-amd64 JRE (1.8.0-adoptopenjdk-_2018_05_19_00_59-b00), built on May 19 2018 01:02:12 by "jenkins" with MS VC++ 10.0 (VS2010)
+
+time: Sat Jan 16 21:43:39 2021
+elapsed time: 0 seconds (0d 0h 0m 0s)
+

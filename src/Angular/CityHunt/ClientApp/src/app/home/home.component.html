@@ -1,0 +1,19 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+<h1>
+  Hello, <!--{{user.name}}--></h1>
+  <p>Welcome to city hunt!</p>
+  <p>In this website you only can add and edit questions.</p>
+  <p>If you want to play the game, download it for your mobile phone.</p>
+  <p>For tourists we have prepared some teams so that you get to know the city a little better "history", "Beer", ... </p>
+
+  <div class="clearfix" style="float: left; padding-left: 30px; padding-bottom: 50px" *ngIf="authService.loggedIn();">
+
+    <button type="button" class="btn btn-danger px-5 mr-2" (click)="signOut()" >Log out</button>
+    <button type="button" class="btn btn-warning px-5 mr-2" [routerLink]="['/team']">Add Team</button>
+
+
+    
+  </div>

@@ -1,0 +1,115 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<div class="container" style="padding-top:60px;">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card-group">
+        <div class="card p-4" style="background-color: aliceblue;">
+          <div class="card-body" >
+          <form #f="ngForm" (ngSubmit)="login()">
+
+              
+              <label for="Email">Email</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons prefix">mail</i>
+                  </span>
+                </div>
+                <input type="email"
+                       id="email"
+                       name="email"
+                       [(ngModel)]="email"
+                       class="form-control"
+                       placeholder="Enter email"
+                       email
+                       required>
+                <span class="help-block" *ngIf="email.errors?.email && email.touched">
+                  Email is invalid!
+                </span>
+                
+              </div>
+              <label for="password">Password</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="material-icons prefix">vpn_key</i>
+                  </span>
+                </div>
+                <input type="password"
+                       id="password"
+                       name="password"
+                       [(ngModel)]="password"
+                       class="form-control"
+                       placeholder="Enter Password"
+                       required>
+                
+              </div>
+              <div>
+                <p style="color:#E92626;
+                   font-size:20px;
+                   font-weight:normal"
+                   Class="success"
+                   align="left">
+                  {{errorMessage}}
+                </p>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <button 
+                          [disabled]="f.invalid"
+                          class="btn btn-warning px-6">
+                    Login
+                    <i class="material-icons prefix">login</i>
+                  </button>
+                </div>
+                <div class="col-6 text-right">
+                  <button type="button"
+                          class="btn btn-link px-0"
+                          [routerLink]="['/reset']">
+                    Forgot password?
+                  </button>
+                  <button type="button"
+                          class="btn btn-warning px-4"
+                          [routerLink]="['/SignUp']">
+                    Sign Up
+                  </button>
+                </div>
+              </div>
+             </form>
+            <hr style="border-top: 1px solid #eee;">
+
+            <!--Google-->
+            <div class="row">
+              <div class="col-6 text-right">
+                <button
+                        (click)="socialSignIn('google')"
+                        class="btn btn-block btn-success">
+                  Login with Google+
+                </button>
+
+              </div>
+
+              <!--Facebook-->
+              <div class="col-6 text-right">
+                <button
+                        (click)="socialSignIn('facebook')"
+                        class="btn btn-block btn-primary">
+                  Login with Facebook
+                </button>
+               </div>
+            </div>
+            <br />
+            <div *ngIf="User">
+              <img src={{user.image}}>
+              <h4>{{user.name}}</h4>
+              <p>{{user.email}}</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

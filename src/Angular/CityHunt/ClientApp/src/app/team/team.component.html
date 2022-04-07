@@ -1,0 +1,81 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<h1>Q and A</h1>
+<p>First choose or add a team.</p>
+<p>Then you can add a question of ability!</p>
+
+
+<div class="container" >
+  <form name="form">
+
+    <div style="padding-top: 20px;" class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <i class="material-icons prefix">group_work</i>
+        </span>
+      </div>
+      <input type="text"
+             name="Team name"
+             [(ngModel)]="teamname"
+             class="form-control"
+             placeholder="Search By Team"
+             value="{{team}}"
+             (input)="Search()"
+             required>
+    </div>
+
+    <button type="button" class="btn btn-danger px-4 mr-2" (click)="signOut()">Log out</button>
+    <button type="submit" class="btn btn-info px-5 mr-2" (click)="submit()">Submit</button>
+    <button type="button" class="btn btn-warning px-5 mr-2" [routerLink]="['/home']">Home</button>
+    <br />
+
+    <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="allTeams">
+      <thead>
+        <tr>
+          <th colspan="2">TeamName</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let allTeam of allTeams | searchfilt:teamname">
+          <td><button type="button" class="btn btn-warning btn-block " (click)="getTeamId(allTeam.teamId, allTeam.teamNaam)">{{allTeam.teamNaam}}</button></td>
+
+
+        </tr>
+      </tbody>
+    </table>
+
+
+  </form>
+</div>
+
+<div class="container2">
+  
+  <div class="row" >
+    <div class="col-4-lg">
+      <div class="card" style="width: 18rem; background-color: aliceblue;">
+        <img class="card-img-top" src="assets/img/Team.png" alt="Card image cap">
+        <div class="card-body">
+          <br />
+          <h5 class="card-title">Questions</h5>
+          <p class="card-text">Press the button down below to add questions.</p>
+          <button type="button" *ngIf="teamId != null" class="btn btn-warning px-5 mr-2" [routerLink]="['/questions']">Add question</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-4-lg ml-3">
+      <div class="card" style="width: 18rem; background-color: aliceblue;">
+        <img class="card-img-top" src="assets/img/Ability.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Ability</h5>
+          <p class="card-text">Press the button down below to add positive or negative abilities.</p>
+          <button type="button" *ngIf="teamId != null" class="btn btn-warning px-5 mr-2" [routerLink]="['/ability']">Add Ability</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
